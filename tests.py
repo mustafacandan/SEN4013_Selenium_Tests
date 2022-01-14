@@ -22,6 +22,16 @@ elif platform.system() == 'Linux':
 else:
     raise ValueError('Sistem algilanma hatasi')
 
+def check_text(elem_xpath, text, err_msg):
+    try:
+        elem = browser.find_element_by_xpath(elem_xpath)
+    except NoSuchElementException as e:
+        elem = None
+    if elem:
+        assert elem.text == text, err_msg
+    else:
+        assert False, err_msg
+
 def is_server_running(browser):
     browser.get(base_url_client)
     title = browser.find_element_by_xpath('//*[@id="root"]/div/form/div[1]/h1')
@@ -69,16 +79,6 @@ def log_out(browser):
         logout_btn = browser.find_element_by_xpath('//*[@id="root"]/nav/ul/li/div/div/button')
         logout_btn.click()
 
-
-def check_text(elem_xpath, text, err_msg):
-    try:
-        elem = browser.find_element_by_xpath(elem_xpath)
-    except NoSuchElementException as e:
-        elem = None
-    if elem:
-        assert elem.text == text, err_msg
-    else:
-        assert False, err_msg
 
 def admin_can_see_daily_reports(browser):
     log_out(browser)
