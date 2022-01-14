@@ -22,7 +22,7 @@ elif platform.system() == 'Linux':
 else:
     raise ValueError('Sistem algilanma hatasi')
 
-def is_server_running(browser, base_url_client):
+def is_server_running(browser):
     browser.get(base_url_client)
     title = browser.find_element_by_xpath('//*[@id="root"]/div/form/div[1]/h1')
     check_text(title, 'Branch Tracker', 'Website is not responding')
