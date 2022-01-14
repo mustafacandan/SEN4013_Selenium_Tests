@@ -14,17 +14,13 @@ admin_username = 'superAdmin'
 admin_password = 'superAdmin'
 
 if platform.system() == 'Darwin':
-    driver = webdriver.Chrome('./chromedrivers/chromedriver_darwin')
+    browser = webdriver.Chrome('./chromedrivers/chromedriver_darwin')
 elif platform.system() == 'Windows':
-    driver = webdriver.Chrome('./chromedrivers/chromedriver_windows.exe')
+    browser = webdriver.Chrome('./chromedrivers/chromedriver_windows.exe')
 elif platform.system() == 'Linux':
-    driver = webdriver.Chrome('./chromedrivers/chromedriver_linux')
+    browser = webdriver.Chrome('./chromedrivers/chromedriver_linux')
 else:
     raise ValueError('Sistem algilanma hatasi')
-
-browser = webdriver.Chrome('./chromedrivers/chromedriver_darwin')
-browser.get(base_url_client, base_url_client)
-
 
 def is_server_running(browser, base_url_client):
     browser.get(base_url_client)
