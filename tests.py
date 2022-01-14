@@ -142,8 +142,8 @@ def admin_can_create_user(browser):
     assert user_info in browser.find_element_by_xpath(table).text, 'User Not Created'
 
 def admin_can_add_new_branch(browser):
-    # admin_can_see_daily_reports(browser)
-    # sleep(0.3)
+    admin_can_see_daily_reports(browser)
+    sleep(0.3)
     url = 'http://localhost:3000/controlPanel/users'
     browser.get(url)
     sleep(0.2)
