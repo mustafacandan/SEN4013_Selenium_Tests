@@ -9,6 +9,6 @@ Avtivate it<br>
 Install Requirements<br>
  `pip install -r requirements.txt`<br><br>
 Run Tests<br>
-`python -m unittest tests`
+`python -m unittest tests`<br>
 Run Tests Individually<br>
 `python -m unittest tests.Test.test_is_server_running`
